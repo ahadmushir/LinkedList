@@ -22,6 +22,18 @@ class LinkedList:
 
         return self.head
 
+    def __len__(self):
+        count = 0
+        temp = self.head
+        if self.head is None:
+            return count
+        else:
+            while self.head is not None:
+                count += 1
+                self.head = self.head.next
+            self.head = temp
+            return count
+
     def print(self):
         temp = self.head
         while self.head is not None:
@@ -51,12 +63,15 @@ def reverse_ll(LL):
     return head
 
 
+
 if __name__ == "__main__":
     LL = LinkedList()
     LL.insert(4)
     LL.insert(45)
     LL.insert(200)
+    LL.insert(2)
     LL.print()
+    print("The length of the LL is %s" % len(LL))
 
     # Printing Reversed LL
     newHead = reverse_ll(LL)
